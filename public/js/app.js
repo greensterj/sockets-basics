@@ -8,10 +8,12 @@ socket.on('connect', function () {
 });
 
 socket.on('message', function (message) {
+    var momentTimestamp = moment.utc(message.timestamp);
+    message.time = momentTimestamp.local().format('h:mma');
     console.log('new Message !');
     console.log(message.text);
 
-    $('.messages').append('<p>' + message.text + '</p>')
+    $('.messages').append('<p><strong>' + message.time + '</strong> ' + message.text + '</p>');
 });
 
 var $form = $('#message-form');
@@ -19,7 +21,7 @@ var $form = $('#message-form');
 $form.on('submit', function (event) {
     event.preventDefault(); // to Handle submit on your own, not letting work as it usually works
 
-    var $message = $form.find('input[name=message]')
+    var $message = $form.find('input[name=message]');
 
     socket.emit('message', {
         text: $message.val()
