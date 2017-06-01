@@ -7,20 +7,35 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <title>Socket.io Basics</title>
 </head>
 <body>
-<a href="index.html">Go Back</a>
-<h2 class="roomTitle"></h2>
-<div class="messages">
-    <!-- Messages end up here ! -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            <a href="index.html">Go Back</a>
+            <h2 class="roomTitle"></h2>
+            <ul class="list-group messages">
+                <!-- mesages come here -->
+            </ul>
+            <form id="message-form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-comment"></i>
+                        </span>
+                        <input type="text" name="message" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info btn-block"/>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<form id="message-form">
-    <input type="text" name="message"/>
-    <input type="submit"/>
-</form>
-
 <script src="/js/jquery/jquery.3.2.1.min.js"></script>
 <script src="/js/socket-io/socket.io-2.0.1.js"></script>
 <script src="/js/moment/moment.js"></script>
